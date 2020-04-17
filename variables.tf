@@ -12,7 +12,7 @@ variable "security_key" {
 
 variable "region" {
     description = "EC2 Region for the VPC"
-    default     = "us-east-2"
+    default     = "ap-south-1"
 }
 
 variable "vpc_cidr" {
@@ -27,7 +27,7 @@ variable "public_cidr" {
 
 variable "subnet_zone" {
     description = "public availability zone"
-    default     = "us-east-2a"
+    default     = "ap-south-1a"
 }
 
 variable "image" {
@@ -42,5 +42,5 @@ variable "instance_type" {
 
 variable "key" {
     description = "instance key name"
-    default     = "gods"
+    default     = "alladamumbai"
 }
