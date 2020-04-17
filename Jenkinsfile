@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('terraform clone') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '7e261af1-1211-4b5a-9478-675cac127cce', url: 'https://github.com/GodsonSibreyan/Godsontf.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2fb7dff5-dcb5-4e2f-94d0-90ef7ecc49a6', url: 'https://github.com/MahendraAllada/mahigods.git']]])
             }
         }
         stage('Parameters'){
@@ -46,8 +46,8 @@ sed -i \"s/ami-0470e33cd681b2476/$Image/g\" /var/lib/jenkins/workspace/django/va
                 sh label: '', script: '''pubIP=$(<publicip)
                 echo "$pubIP"
                 ssh -tt -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no ec2-user@$pubIP /bin/bash << EOF
-                git clone -b branchPy https://github.com/GodsonSibreyan/Godsontf.git
-                cd Godsontf/
+                git clone -b branchPy https://github.com/MahendraAllada/mahigods.git
+                cd mahigods/
                 chmod 755 manage.py
                 python manage.py migrate
                 nohup ./manage.py runserver 0.0.0.0:8000 &
