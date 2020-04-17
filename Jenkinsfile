@@ -51,11 +51,18 @@ sed -i \"s/ami-0470e33cd681b2476/$Image/g\" /var/lib/jenkins/workspace/django/va
                 chmod 755 manage.py
                 python manage.py migrate
                 nohup ./manage.py runserver 0.0.0.0:8000 &
+                sleep 180
                 exit
                 EOF
                 '''
             }
         }
-       
+       stage('Deployed') {
+            steps {
+                 sh label: '', script: '''rm -rf publicip
+                 echo "Deployed"
+                 '''
+            }
+        }
     }
 }
